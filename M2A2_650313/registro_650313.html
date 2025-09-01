@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>M2A2_650313 – Registro Torneo 2025</title>
+  <style>
+    /* Estilo sobrio y distinto al anterior */
+    body{ font-family: Verdana, Tahoma, sans-serif; margin:24px; color:#222; }
+    .box{ width: 600px; }
+
+    table{ width:100%; border-collapse: collapse; }
+    th, td{ border:1px solid #cfcfcf; padding:10px; vertical-align: middle; }
+    thead th{
+      text-align:left; background:#eef5ff; font-size:1rem; font-weight:700;
+    }
+    tbody tr:nth-child(odd) td{ background:#fafcff; }   /* zebra sutil */
+    .label{ width:42%; white-space:nowrap; }
+
+    /* Campos */
+    input[type="text"], input[type="email"],
+    input[type="number"], input[type="date"]{
+      width: 100%; max-width: 290px;
+      padding: 6px 8px; box-sizing: border-box;
+      border:1px solid #bdbdbd; border-radius:4px;
+    }
+
+    .help{ font-size:.85rem; color:#666; margin-top:6px; display:block; }
+    .opts label{ margin-right:14px; }
+
+    /* Botones simples */
+    .actions{ text-align: right; }
+    button{
+      padding:6px 12px; border:1px solid #4a90e2; border-radius:4px; cursor:pointer;
+      background:#4a90e2; color:#fff; margin-left:8px;
+    }
+    button[type="reset"]{ background:#fff; color:#2d5aa6; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <form action="#" method="post">
+      <table aria-label="Formulario de inscripción al torneo">
+        <thead>
+          <tr><th colspan="2">Registro para el Torneo de Videojuegos 2025</th></tr>
+        </thead>
+        <tbody>
+          <!-- Nombre del jugador: obligatorio, 3–15 -->
+          <tr>
+            <td class="label"><label for="nombre">Nombre del jugador:</label></td>
+            <td>
+              <input id="nombre" name="nombre" type="text"
+                     required minlength="3" maxlength="15"
+                     placeholder="Escribe tu nombre">
+            </td>
+          </tr>
+
+          <!-- Correo: obligatorio, formato válido -->
+          <tr>
+            <td class="label"><label for="correo">Correo electrónico:</label></td>
+            <td>
+              <input id="correo" name="correo" type="email"
+                     required placeholder="tucorreo@ejemplo.com">
+            </td>
+          </tr>
+
+          <!-- Edad: obligatoria, entre 12 y 40 -->
+          <tr>
+            <td class="label"><label for="edad">Edad:</label></td>
+            <td>
+              <input id="edad" name="edad" type="number"
+                     required min="12" max="40" step="1">
+            </td>
+          </tr>
+
+          <!-- Nickname: solo letras y números (pattern) -->
+          <tr>
+            <td class="label"><label for="nick">Nickname en el juego:</label></td>
+            <td>
+              <input id="nick" name="nick" type="text"
+                     pattern="^[A-Za-z0-9]+$" placeholder="Ej: Apodo"
+                     title="Solo letras y números, sin espacios ni símbolos.">
+              <span class="help">Solo letras y números (pattern).</span>
+            </td>
+          </tr>
+
+          <!-- Categoría: radio, selección obligatoria -->
+          <tr>
+            <td class="label">Categoría:</td>
+            <td class="opts">
+              <label><input type="radio" name="categoria" value="Principiante" required> Principiante</label>
+              <label><input type="radio" name="categoria" value="Intermedio"> Intermedio</label>
+              <label><input type="radio" name="categoria" value="Experto"> Experto</label>
+              <span class="help">Selecciona una opción.</span>
+            </td>
+          </tr>
+
+          <!-- Juegos favoritos: checkboxes, múltiples selecciones -->
+          <tr>
+            <td class="label">Juegos favoritos:</td>
+            <td class="opts">
+              <label><input type="checkbox" name="juegos[]" value="FIFA"> FIFA</label>
+              <label><input type="checkbox" name="juegos[]" value="LoL"> LoL</label>
+              <label><input type="checkbox" name="juegos[]" value="Minecraft"> Minecraft</label>
+            </td>
+          </tr>
+
+          <!-- Fecha de inscripción: solo 2025 -->
+          <tr>
+            <td class="label"><label for="fecha">Fecha de inscripción:</label></td>
+            <td>
+              <input id="fecha" name="fecha" type="date"
+                     min="2025-01-01" max="2025-12-31"
+                     title="Solo fechas del año 2025">
+              <span class="help">Rango permitido: 01/01/2025 a 12/31/2025</span>
+            </td>
+          </tr>
+
+          <!-- Botones -->
+          <tr>
+            <td></td>
+            <td class="actions">
+              <button type="reset">Restablecer</button>
+              <button type="submit">Enviar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+</body>
+</html>
